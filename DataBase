@@ -6,7 +6,8 @@ CREATE TABLE Usuario (
   nome VARCHAR(100),
   email VARCHAR(100),
   senha VARCHAR(100),
-  admin INT (1)
+  admin INT (1),
+  image_path TEXT
 );
 
 CREATE TABLE Casa (
