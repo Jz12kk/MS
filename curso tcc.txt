@@ -1,0 +1,69 @@
+4.1.1. Curso Normal e Alternativo - Cliente
+4.1.1.1. Efetuar Cadastro
+1. O Cliente carrega a pagina de cadastro.
+2. O Sistema retorna a pagina de cadastro.
+3. O Cliente insere os dados para cadastro.
+4. O Sistema verifica os dados inseridos.
+4.1. O Sistema analisa se houve algum erro.
+4.2. O Sistema retorna a mensagem de erro.
+5. O Sistema grava os dados no banco de dados.
+6. O Sistema encaminha o Cliente cadastrado para a pagina inicial.
+7. O Sistema informa que o cadastro foi realizado com sucesso.
+
+4.1.1.2. Agendar Visita
+1. O Cliente carrega a pagina de visitas.
+2. O Sistema verifica dados do Cliente.
+2.1. Caso Cliente nao esteja logado retorna para a pagina inicial.
+3. O Sistema retorna a pagina de visita.
+4. O Cliente agenda horario de visitas.
+5. O Sistema verifica os dados da visita.
+5.1. O Sistema analisa se houve algum erro.
+5.2. O Sistema retorna a mensagem de erro.
+6. O Sistema grava os dados no banco de dados.
+7. O Sistema encaminha o Cliente cadastrado para a pagina inicial.
+8. O Sistema informa que a visita foi agendada com sucesso.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
