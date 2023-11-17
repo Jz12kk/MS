@@ -1,0 +1,30 @@
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Get user input from form
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $password = $_POST['password'];
+
+  // Get user from database
+  $sql = "SELECT *
+          FROM users WHERE email = '$email'";
+  $result = mysqli_query($conn, $sql);
+  $user = mysqli_fetch_assoc($result);
+
+  // Verify password
+  if ($user && password_verify($password, $user['password'])) {
+    // Store user data in session
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['admin'] = $user['admin'];
+    $_SESSION['email'] = $user['email'];
+    $_SESSION['image'] =  $user['image_path'];
+    $_SESSION['senha'] =  $password;
+    $_SESSION['credits'] = $user['credits'];
+    
+    // Redirect to home page
+    header('Location: index.php');
+    exit;
+  } else {
+    // Invalid login
+    $error = 'Email ou senha invalidada';
+  }
+}
