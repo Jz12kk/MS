@@ -1,0 +1,28 @@
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if the email is already registered
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        $error = 'Este email ja foi registrado';
+    } else {
+        $image = 'img/avatar/tecblogavatar.png';
+        $sql = "INSERT INTO users (image_path, username, email, password) VALUES (img/avatar/defaultavatar.png, '$username', '$email', '" . password_hash($password, PASSWORD_DEFAULT) . "')";
+        if (mysqli_query($conn, $sql)) {
+            $_SESSION['user_id'] = mysqli_insert_id($conn);
+            $_SESSION['username'] = $username;
+            $_SESSION['admin'] = '';
+            $_SESSION['email'] = $email;
+            $_SESSION['senha'] =  $password;
+            $_SESSION['image'] =  'img/avatar/defaultavatar.png';
+            header('Location: index.php');
+            exit();
+        } else {
+            $error = 'Erro registrando novo usuario';
+        }
+    }
+}
